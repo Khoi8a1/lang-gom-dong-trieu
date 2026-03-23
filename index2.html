@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gốm Đông Triều</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
+html{scroll-behavior:smooth}
+body{background:#f5f5f5}
+
+header{
+  background:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),
+  url("https://images.unsplash.com/photo-1581092918056-0c4c3acd3789") center/cover;
+  color:white;text-align:center;padding:100px 20px;
+}
+header h1{font-size:40px}
+header p{margin-top:10px;font-style:italic}
+
+nav{background:#8B4513;padding:15px;text-align:center;position:sticky;top:0}
+nav a{color:white;margin:0 15px;text-decoration:none;font-weight:bold}
+
+section{padding:60px 20px;max-width:1100px;margin:auto}
+h2{text-align:center;margin-bottom:30px;color:#8B4513}
+
+.products{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px}
+.card{background:white;padding:15px;border-radius:15px;box-shadow:0 4px 10px rgba(0,0,0,0.1);text-align:center;transition:0.3s}
+.card:hover{transform:translateY(-5px) scale(1.02)}
+.card img{width:100%;border-radius:10px}
+.card button{background:#8B4513;color:white;border:none;padding:10px;border-radius:5px;cursor:pointer}
+
+.gallery img{width:32%;margin:5px;border-radius:10px}
+
+#cartBox{
+ position:fixed;right:20px;bottom:80px;background:white;
+ width:320px;padding:15px;border-radius:15px;box-shadow:0 4px 15px rgba(0,0,0,0.2);
+ display:none;
+}
+#cartBtn{
+ position:fixed;right:20px;bottom:20px;background:#8B4513;color:white;
+ padding:15px;border-radius:50px;cursor:pointer;font-size:20px
+}
+
+input,button{padding:8px;margin-top:10px;width:100%}
+
+footer{background:#333;color:white;text-align:center;padding:20px}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>GỐM ĐÔNG TRIỀU</h1>
+<p>“Gốm Đông Triều – Hồn đất, hồn người Việt”</p>
+</header>
+
+<nav>
+<a href="#">Trang chủ</a>
+<a href="#about">Giới thiệu</a>
+<a href="#products">Sản phẩm</a>
+<a href="#gallery">Thư viện</a>
+<a href="#video">Video</a>
+<a href="#preserve">Bảo tồn</a>
+<a href="#order">Đặt hàng</a>
+</nav>
+
+<section id="about">
+<h2>Giới thiệu làng nghề</h2>
+<p>
+Làng gốm Đông Triều (Quảng Ninh) là làng nghề truyền thống lâu đời,
+nổi tiếng với các sản phẩm gốm gia dụng và mỹ nghệ mang đậm bản sắc văn hóa Việt Nam.
+</p>
+</section>
+
+<section id="products">
+<h2>Sản phẩm tiêu biểu</h2>
+<div class="products">
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1519710164239-da123dc03ef4">
+<h3>Bình gốm thủ công</h3>
+<p>200.000đ</p>
+<button onclick="add('Bình gốm',200000)">Mua</button>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1526318472351-c75fcf070305">
+<h3>Chậu gốm nghệ thuật</h3>
+<p>150.000đ</p>
+<button onclick="add('Chậu gốm',150000)">Mua</button>
+</div>
+
+</div>
+</section>
+
+<section id="gallery">
+<h2>Thư viện hình ảnh</h2>
+<div class="gallery">
+<img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c">
+<img src="https://images.unsplash.com/photo-1582582494700-7c6b1d1f58c1">
+<img src="https://images.unsplash.com/photo-1581091012184-5c4c3acd3789">
+</div>
+</section>
+
+<!-- VIDEO -->
+<section id="video">
+<h2>Video làng nghề</h2>
+<iframe width="100%" height="400"
+src="https://www.youtube.com/embed/VIDEO_ID_CUA_EM"
+allowfullscreen>
+</iframe>
+
+</section>
+
+<section id="preserve">
+<h2>Bảo tồn và phát triển</h2>
+<ul>
+<li>Gìn giữ kỹ thuật làm gốm truyền thống</li>
+<li>Truyền nghề cho thế hệ trẻ</li>
+<li>Quảng bá qua internet và du lịch</li>
+<li>Phát triển thương mại điện tử</li>
+</ul>
+</section>
+
+<section>
+<h2>Quét QR để truy cập website</h2>
+<img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://gomdongtrieu.vn">
+<p>(Thay bằng link web thật nếu có)</p>
+</section>
+
+<section id="order">
+<h2>Đặt hàng</h2>
+<input id="name" placeholder="Tên của bạn">
+<input id="phone" placeholder="Số điện thoại">
+<button onclick="checkout()">Xác nhận đặt hàng</button>
+</section>
+
+<div id="cartBtn" onclick="toggleCart()">🛒</div>
+
+<div id="cartBox">
+<h3>Giỏ hàng</h3>
+<ul id="cartList"></ul>
+<p><b>Tổng:</b> <span id="total">0</span>đ</p>
+</div>
+
+<footer>
+<p>© 2026 Gốm Đông Triều | Bảo tồn làng nghề Việt</p>
+</footer>
+
+<script>
+let cart=[];
+let total=0;
+
+function add(name,price){
+ cart.push(name);
+ total+=price;
+ update();
+}
+
+function update(){
+ let list=document.getElementById('cartList');
+ list.innerHTML='';
+ cart.forEach(i=>{
+   let li=document.createElement('li');
+   li.textContent=i;
+   list.appendChild(li);
+ });
+ document.getElementById('total').innerText=total;
+}
+
+function toggleCart(){
+ let box=document.getElementById('cartBox');
+ box.style.display = box.style.display==='block'?'none':'block';
+}
+
+function checkout(){
+ let name=document.getElementById('name').value;
+ let phone=document.getElementById('phone').value;
+ if(!name||!phone){alert('Nhập đủ thông tin');return;}
+ alert('Đặt hàng thành công!\nTên: '+name+'\nSĐT: '+phone);
+ cart=[];total=0;update();
+}
+</script>
+
+</body>
+</html>
