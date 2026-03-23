@@ -4,53 +4,81 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Làng Gốm Đông Triều</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
+body{background:#f5f5f5}
+
+header{
+  background:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url("https://images.unsplash.com/photo-1581092918056-0c4c3acd3789") center/cover;
+  color:white;
+  text-align:center;
+  padding:100px 20px;
+  animation:fadeIn 2s;
 }
 
-header {
-    background: url("https://images.unsplash.com/photo-1581092918056-0c4c3acd3789") center/cover;
-    color: white;
-    text-align: center;
-    padding: 80px 20px;
+header h1{font-size:50px}
+header p{margin-top:10px}
+
+nav{
+  background:#8B4513;
+  padding:15px;
+  text-align:center;
+  position:sticky;
+  top:0;
 }
 
-nav {
-    background: #8B4513;
-    padding: 10px;
-    text-align: center;
+nav a{
+  color:white;
+  margin:0 15px;
+  text-decoration:none;
+  font-weight:bold;
+  transition:0.3s;
 }
 
-nav a {
-    color: white;
-    margin: 10px;
-    text-decoration: none;
-    font-weight: bold;
+nav a:hover{color:yellow}
+
+section{padding:60px 20px;max-width:1100px;margin:auto}
+
+h2{text-align:center;margin-bottom:30px;color:#8B4513}
+
+/* slideshow */
+.slideshow{position:relative;height:400px;overflow:hidden;border-radius:15px}
+.slide{position:absolute;width:100%;height:100%;opacity:0;transition:1s}
+.slide img{width:100%;height:100%;object-fit:cover}
+.active{opacity:1}
+
+/* gallery */
+.gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:15px}
+.gallery img{width:100%;border-radius:10px;transition:0.3s}
+.gallery img:hover{transform:scale(1.05)}
+
+/* product */
+.products{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px}
+.card{
+  background:white;
+  border-radius:15px;
+  padding:15px;
+  box-shadow:0 4px 10px rgba(0,0,0,0.1);
+  text-align:center;
+}
+.card img{width:100%;border-radius:10px}
+.card button{
+  background:#8B4513;
+  color:white;
+  border:none;
+  padding:10px 15px;
+  margin-top:10px;
+  border-radius:5px;
+  cursor:pointer;
 }
 
-section {
-    padding: 40px;
-}
+footer{background:#333;color:white;text-align:center;padding:20px}
 
-.gallery {
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
-}
-
-.gallery img {
-    width: 30%;
-    border-radius: 10px;
-}
-
-footer {
-    background: #333;
-    color: white;
-    text-align: center;
-    padding: 20px;
+@keyframes fadeIn{
+from{opacity:0;transform:translateY(-20px)}
+to{opacity:1}
 }
 </style>
 </head>
@@ -58,49 +86,77 @@ footer {
 <body>
 
 <header>
-    <h1>Làng Gốm Đông Triều</h1>
-    <p>Di sản văn hóa Việt Nam</p>
+<h1>Gốm Đông Triều</h1>
+<p>Giữ hồn đất Việt – Nâng tầm gốm Đông Triều</p>
 </header>
 
 <nav>
-    <a href="#">Trang chủ</a>
-    <a href="#gioithieu">Giới thiệu</a>
-    <a href="#hinhanh">Hình ảnh</a>
-    <a href="#video">Video</a>
+<a href="#">Trang chủ</a>
+<a href="#gallery">Thư viện</a>
+<a href="#video">Video</a>
+<a href="#products">Sản phẩm</a>
 </nav>
 
-<section id="gioithieu">
-    <h2>Giới thiệu</h2>
-    <p>
-        Làng gốm Đông Triều là một trong những làng nghề truyền thống nổi tiếng,
-        với lịch sử lâu đời và sản phẩm tinh xảo mang đậm bản sắc Việt Nam.
-    </p>
+<section>
+<h2>Khám phá làng gốm</h2>
+<div class="slideshow">
+<div class="slide active"><img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c"></div>
+<div class="slide"><img src="https://images.unsplash.com/photo-1526318472351-c75fcf070305"></div>
+<div class="slide"><img src="https://images.unsplash.com/photo-1503602642458-232111445657"></div>
+</div>
 </section>
 
-<section id="hinhanh">
-    <h2>Hình ảnh</h2>
-    <div class="gallery">
-        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c">
-        <img src="https://images.unsplash.com/photo-1581091215367-59ab6b8c9e6c">
-        <img src="https://images.unsplash.com/photo-1590080876215-d0d66b3f3b07">
-    </div>
+<section id="gallery">
+<h2>Thư viện ảnh</h2>
+<div class="gallery">
+<img src="https://images.unsplash.com/photo-1519710164239-da123dc03ef4">
+<img src="https://images.unsplash.com/photo-1526318472351-c75fcf070305">
+<img src="https://images.unsplash.com/photo-1503602642458-232111445657">
+<img src="https://images.unsplash.com/photo-1519681393784-d120267933ba">
+</div>
 </section>
 
 <section id="video">
-    <h2>Video làm gốm</h2>
+<h2>Video làm gốm</h2>
+<iframe width="100%" height="400"
+src="https://www.youtube.com/embed/1n6gWzQ2k9k"
+frameborder="0" allowfullscreen></iframe>
+</section>
 
-    <iframe width="100%" height="400"
-    src="https://www.youtube.com/embed/1n6gWzQ2k9k"
-    title="Quy trình làm gốm"
-    frameborder="0"
-    allowfullscreen>
-    </iframe>
-
+<section id="products">
+<h2>Sản phẩm nổi bật</h2>
+<div class="products">
+<div class="card">
+<img src="https://images.unsplash.com/photo-1519710164239-da123dc03ef4">
+<h3>Bình gốm</h3>
+<button>Mua</button>
+</div>
+<div class="card">
+<img src="https://images.unsplash.com/photo-1526318472351-c75fcf070305">
+<h3>Chậu gốm</h3>
+<button>Mua</button>
+</div>
+<div class="card">
+<img src="https://images.unsplash.com/photo-1503602642458-232111445657">
+<h3>Đồ trang trí</h3>
+<button>Mua</button>
+</div>
+</div>
 </section>
 
 <footer>
-    <p>© 2026 Làng Gốm Đông Triều</p>
+<p>© 2026 Gốm Đông Triều</p>
 </footer>
+
+<script>
+let slides=document.querySelectorAll('.slide');
+let i=0;
+setInterval(()=>{
+slides[i].classList.remove('active');
+i=(i+1)%slides.length;
+slides[i].classList.add('active');
+},3000);
+</script>
 
 </body>
 </html>
