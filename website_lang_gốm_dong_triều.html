@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gốm Đông Triều</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
+    body{background:#f4f1ee;color:#333}
+
+    header{
+      background:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1581091215367-59ab6b2c9c8c');
+      background-size:cover;
+      color:white;
+      text-align:center;
+      padding:100px 20px;
+      animation:fadeIn 2s ease-in;
+    }
+
+    header h1{font-size:48px}
+    header p{font-size:18px;margin-top:10px}
+
+    nav{
+      background:#8B4513;
+      display:flex;
+      justify-content:center;
+      padding:15px;
+      position:sticky;
+      top:0;
+      z-index:1000;
+    }
+
+    nav a{
+      color:white;
+      margin:0 15px;
+      text-decoration:none;
+      font-weight:600;
+      transition:0.3s;
+    }
+
+    nav a:hover{color:#ffd700}
+
+    section{padding:60px 20px;max-width:1100px;margin:auto}
+
+    h2{text-align:center;margin-bottom:30px;color:#8B4513}
+
+    /* Slideshow */
+    .slideshow{position:relative;max-width:100%;height:400px;overflow:hidden;border-radius:15px}
+    .slide{position:absolute;width:100%;height:100%;opacity:0;transition:opacity 1s}
+    .slide img{width:100%;height:100%;object-fit:cover}
+    .active{opacity:1}
+
+    /* Gallery */
+    .gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:15px}
+    .gallery img{
+      width:100%;border-radius:10px;cursor:pointer;transition:0.3s
+    }
+    .gallery img:hover{transform:scale(1.05)}
+
+    /* Video */
+    .video-container{display:flex;justify-content:center}
+    iframe{border-radius:15px;width:100%;max-width:700px;height:400px}
+
+    /* QR */
+    .qr{text-align:center}
+    .qr img{width:150px;margin-top:15px}
+
+    footer{
+      background:#333;color:white;text-align:center;padding:20px
+    }
+
+    @keyframes fadeIn{
+      from{opacity:0;transform:translateY(-20px)}
+      to{opacity:1;transform:translateY(0)}
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Gốm Đông Triều</h1>
+  <p>“Giữ hồn đất Việt – Nâng tầm gốm Đông Triều”</p>
+</header>
+
+<nav>
+  <a href="#home">Trang chủ</a>
+  <a href="#gallery">Thư viện</a>
+  <a href="#video">Video</a>
+  <a href="#qr">QR Code</a>
+</nav>
+
+<section id="home">
+  <h2>Khám phá làng gốm</h2>
+  <div class="slideshow">
+    <div class="slide active"><img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c"></div>
+    <div class="slide"><img src="https://images.unsplash.com/photo-1590080877777-1c1db1c1c5b6"></div>
+    <div class="slide"><img src="https://images.unsplash.com/photo-1582582494700-4c8c3f9f5b5e"></div>
+  </div>
+</section>
+
+<section id="gallery">
+  <h2>Thư viện hình ảnh</h2>
+  <div class="gallery">
+    <img src="https://images.unsplash.com/photo-1519710164239-da123dc03ef4">
+    <img src="https://images.unsplash.com/photo-1526318472351-c75fcf070305">
+    <img src="https://images.unsplash.com/photo-1503602642458-232111445657">
+    <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba">
+  </div>
+</section>
+
+<section id="video">
+  <h2>Video làng nghề</h2>
+  <div class="video-container">
+    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
+  </div>
+</section>
+
+<section id="qr">
+  <h2>Quét QR để khám phá</h2>
+  <div class="qr">
+    <p>Quét mã để truy cập website</p>
+    <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://example.com">
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Gốm Đông Triều</p>
+</footer>
+
+<script>
+  let slides=document.querySelectorAll('.slide');
+  let index=0;
+
+  setInterval(()=>{
+    slides[index].classList.remove('active');
+    index=(index+1)%slides.length;
+    slides[index].classList.add('active');
+  },3000);
+</script>
+
+</body>
+</html>
